@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Private Relay secure messaging service" />
+    <title>Private Relay</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark">PR</span><div><p class="eyebrow">SECURE MESSAGING SERVICE</p><h1>Private Relay</h1></div></div>
+        <div id="accountBar" class="account-bar hidden"><span id="accountName"></span><span id="accountRole" class="role-chip"></span><button id="logout" class="button button-quiet" type="button">Log out</button></div>
+      </header>
+
+      <section id="authView" class="auth-view">
+        <div class="auth-copy"><p class="eyebrow">PRIVATE BY DEFAULT</p><h2>A quieter place for important messages.</h2><p>Connect with friends, keep conversations private, and let the server protect stored messages with authenticated encryption.</p><div class="auth-facts"><span>01 / Passwords are hashed</span><span>02 / Messages are encrypted at rest</span><span>03 / Sessions use secure cookies</span></div></div>
+        <div class="auth-panel panel"><div class="tabs"><button id="loginTab" class="tab active" type="button">Log in</button><button id="signupTab" class="tab" type="button">Create account</button></div><form id="authForm"><label for="username">Username</label><input id="username" required autocomplete="username" minlength="3" maxlength="24" /><label for="password">Password</label><input id="password" required type="password" autocomplete="current-password" minlength="8" /><button class="button button-primary full" type="submit"><span id="authSubmit">Enter Private Relay</span><span>↗</span></button><p id="authError" class="form-error" role="alert"></p></form><p class="small-note">Admin access is assigned to the configured server administrator account.</p></div>
+      </section>
+
+      <section id="userView" class="dashboard hidden">
+        <div class="dashboard-heading"><div><p class="eyebrow">PRIVATE RELAY / YOUR SPACE</p><h2>Good conversations, kept close.</h2></div><span class="secure-badge"><i></i> Server encryption active</span></div>
+        <div class="user-grid"><aside class="panel people-panel"><div class="panel-heading"><div><p class="eyebrow">01 / People</p><h3>Friends</h3></div></div><form id="friendForm" class="inline-form"><input id="friendUsername" placeholder="Add by username" required /><button class="button button-primary" type="submit" title="Add friend">+</button></form><p id="friendError" class="form-error"></p><div id="friendsList" class="people-list"></div><p class="privacy-note">Messages are encrypted by the backend before they are saved.</p></aside><section class="panel chat-panel"><div class="chat-heading"><div><p class="eyebrow">02 / Conversation</p><h3 id="chatTitle">Choose a friend</h3></div><span id="chatStatus" class="counter">No conversation selected</span></div><div id="messageList" class="message-list"><div class="empty-state">Add a friend, then choose their name to start a private conversation.</div></div><form id="messageForm" class="message-form"><input id="messageInput" maxlength="2000" placeholder="Write a private message..." disabled required /><button class="button button-dark" type="submit">Send <span>↗</span></button></form></section></div>
+      </section>
+
+      <section id="adminView" class="admin-view hidden"><div class="admin-heading"><div><p class="eyebrow">PRIVATE RELAY / ADMIN CONSOLE</p><h2>System oversight.</h2><p>Review registered accounts and server-decrypted message history.</p></div><span class="admin-badge">ADMIN ACCESS</span></div><div class="admin-grid"><section class="panel"><div class="panel-heading"><div><p class="eyebrow">01 / Accounts</p><h3>Registered users</h3></div><span id="userCount" class="counter"></span></div><div id="adminUsers" class="admin-users"></div></section><section class="panel"><div class="panel-heading"><div><p class="eyebrow">02 / Oversight</p><h3>Chat history</h3></div><span id="chatCount" class="counter"></span></div><div id="adminChats" class="admin-chats"></div></section></div></section>
+
+      <footer><span>PRIVATE RELAY / SERVER-MANAGED ENCRYPTION</span><span>Use HTTPS and a managed database in production</span></footer>
+    </main>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
