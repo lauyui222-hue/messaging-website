@@ -1,7 +1,0 @@
-{
-  "name": "web-message-encrypter",
-  "private": true,
-  "scripts": {
-    "start": "node server.js"
-  }
-}
